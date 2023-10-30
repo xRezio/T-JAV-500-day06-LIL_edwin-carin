@@ -72,8 +72,19 @@ public abstract class Character implements Movable
         System.out.println(this.name+": moves back");        
     }
 
-    public void attack(String attack)
-    {
-        System.out.println(getName()+": Rrrrrrrrr....");
+    public void attack(String weapon) throws WeaponException {
+        if (weapon == null || weapon.trim().isEmpty()) {
+            throw new WeaponException(this.name + ": I refuse to fight with my bare hands.");
+        }
+        System.out.println(this.name + ": Rrrrrrrrr....");
     }
+
+    public void tryToAttack(String weapon) {
+        try {
+            attack(weapon);
+        } catch (WeaponException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

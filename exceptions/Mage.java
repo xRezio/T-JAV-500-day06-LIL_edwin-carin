@@ -32,9 +32,13 @@ public class Mage extends Character
     }
 
     @Override
-    public void attack(String attack){
-        System.out.println(getName()+": Rrrrrrrrr....");
-        System.out.println(getName()+": Feel the power of my "+attack+"!");
+    public void attack(String weapon) throws WeaponException {
+        if (weapon == null || weapon.trim().isEmpty()) {
+            throw new WeaponException(this.name + ": I refuse to fight with my bare hands.");
+        } else if ("hammer".equals(weapon)) {
+            throw new WeaponException(this.name + ": I don't need this stupid " + weapon + "! Don't misjudge my powers!");
+        }
+        super.attack(weapon);
     }
 
     @Override

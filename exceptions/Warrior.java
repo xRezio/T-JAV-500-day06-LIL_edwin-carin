@@ -31,11 +31,16 @@ public class Warrior extends Character
         return this.wit;
     }
 
-    @Override
-    public void attack(String attack){
-        System.out.println(getName()+": Rrrrrrrrr....");
-        System.out.println(getName()+": I'll crush you with my "+attack+"!");
+@Override
+public void attack(String weapon) throws WeaponException {
+    if (weapon == null || weapon.trim().isEmpty()) {
+        throw new WeaponException(this.name + ": I refuse to fight with my bare hands.");
+    } else if (!"hammer".equals(weapon)) {
+        throw new WeaponException(this.name + ": A " + weapon + "?? What should I do with this?!");
     }
+    super.attack(weapon);
+    System.out.println(this.name + ": I'll crush you with my " + weapon + "!");
+}
 
     @Override
     public void moveRight() {
