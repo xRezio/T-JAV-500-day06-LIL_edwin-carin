@@ -68,9 +68,3 @@ public abstract class Character implements Movable{
     }
 
 }
-
-class TestCharacter extends Character {
-    public TestCharacter(String name) {
-        super(name, "SomethingSetByTestCharacter");
-    }
-}

@@ -16,7 +16,7 @@ public class Warrior extends Character {
         super.attack(weapon);
         System.out.println(name + ": I'll crush you with my " + weapon + "!");
     }
-    
+
     @Override
     public void moveRight() {
         System.out.println(name + ": moves right like a bad boy.");

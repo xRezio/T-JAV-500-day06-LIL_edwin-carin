@@ -73,10 +73,3 @@ public abstract class Character implements Movable{
         System.out.println(name + ": unsheathes his weapon.");
     }
 
-}
-
-class TestCharacter extends Character {
-    public TestCharacter(String name) {
-        super(name, "SomethingSetByTestCharacter");
-    }
-}
