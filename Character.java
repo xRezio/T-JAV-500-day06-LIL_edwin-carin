@@ -1,12 +1,14 @@
-public abstract class Character implements Movable{
+import java.lang.reflect.Method;
+
+public abstract class Character implements Movable {
     protected String name;
     protected int life;
     protected int agility;
-    protected int strength;
     protected int wit;
+    protected int strength;
     protected final String RPGClass;
 
-    public Character(String name, String RPGClass) {
+    protected Character(String name, String RPGClass) {
         this.name = name;
         this.RPGClass = RPGClass;
         this.life = 50;
@@ -16,55 +18,50 @@ public abstract class Character implements Movable{
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getLife() {
-        return life;
+        return this.life;
     }
 
     public int getAgility() {
-        return agility;
-    }
-
-    public int getStrength() {
-        return strength;
+        return this.agility;
     }
 
     public int getWit() {
-        return wit;
+        return this.wit;
     }
 
-        @Override
-    public void moveRight() {
-        System.out.println(name + ": moves right");
-    }
-
-    @Override
-    public void moveLeft() {
-        System.out.println(name + ": moves left");
-    }
-
-    @Override
-    public void moveForward() {
-        System.out.println(name + ": moves forward");
-    }
-
-    @Override
-    public void moveBack() {
-        System.out.println(name + ": moves back");
+    public int getStrength() {
+        return this.strength;
     }
 
     public String getRPGClass() {
-        return RPGClass;
+        return this.RPGClass;
     }
 
-    public void attack(String weapon) {
-        System.out.println(name + ": Rrrrrrrrr....");
+    public void attack(String random) {
+        System.out.println(this.name + ": Rrrrrrrrr....");
+    }
+
+    public void moveRight() {
+        System.out.println(this.name + ": moves right");
+    }
+
+    public void moveLeft() {
+        System.out.println(this.name + ": moves left");
+    }
+
+    public void moveForward() {
+        System.out.println(this.name + ": moves forward");
+    }
+
+    public void moveBack() {
+        System.out.println(this.name + ": moves back");
     }
 
     public final void unsheathe() {
-        System.out.println(name + ": unsheathes his weapon.");
+        System.out.println(this.name + ": unsheathes his weapon.");
     }
-
 }
