@@ -1,63 +1,42 @@
-public class Mage extends Character
-{   
-    private int life = 70;
-    private int strength = 10;
-    private int agility = 8;
-    private int wit = 3;
-
-    public Mage(String name)
-    {
-        super(name,"Mage");
-        System.out.println(name+": May the gods be with me.");
-    }
-    
-    @Override
-    public int getLife(){
-        return this.life;
-    }
-
-    @Override
-    public int getStrength(){
-        return this.strength;
-    }
-
-    @Override
-    public int getAgility(){
-        return this.agility;
-    }
-
-    @Override
-    public int getWit(){
-        return this.wit;
+public class Mage extends Character {
+    public Mage(String name) {
+        super(name, "Mage");
+        this.life = 70;
+        this.strength = 3;
+        this.agility = 10;
+        this.wit = 10;
+        System.out.println(name + ": May the gods be with me.");
     }
 
     @Override
     public void attack(String weapon) throws WeaponException {
-        if (weapon == null || weapon.trim().isEmpty()) {
-            throw new WeaponException(this.name + ": I refuse to fight with my bare hands.");
-        } else if ("hammer".equals(weapon)) {
-            throw new WeaponException(this.name + ": I don't need this stupid " + weapon + "! Don't misjudge my powers!");
+        if (!weapon.equals("magic") && !weapon.equals("wand")) {
+            throw new WeaponException(name + ": I don't need this stupid " + weapon + "! Don't misjudge my powers!");
         }
         super.attack(weapon);
+        System.out.println(name + ": Feel the power of my " + weapon + "!");
     }
+
 
     @Override
     public void moveRight() {
-        System.out.println(this.name+": moves right furtively.");
+        System.out.println(name + ": moves right furtively.");
     }
 
     @Override
     public void moveLeft() {
-        System.out.println(this.name+": moves left furtively.");
+        System.out.println(name + ": moves left furtively.");
     }
 
     @Override
     public void moveForward() {
-        System.out.println(this.name+": moves forward furtively.");
+        System.out.println(name + ": moves forward furtively.");
     }
 
     @Override
     public void moveBack() {
-        System.out.println(this.name+": moves back furtively.");
+        System.out.println(name + ": moves back furtively.");
     }
+
+
 }
